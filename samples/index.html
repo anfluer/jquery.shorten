@@ -1,47 +1,102 @@
 <!DOCTYPE html>
-<HTML>
-<HEAD>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type="text/javascript" src="../src/jquery.shorten.js"></script>
-	
-	<TITLE>Dynamically shortened Text with Show More link using jQuery</TITLE>
-	<style>body {font-family: Calibri} div { width: 400px; margin:20px; padding:10px;}</style>
-</HEAD>
-<BODY>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="../src/jquery.shorten.min.js"></script>
 
-<br/>
-<div class="comment">
-Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit. Vestibulum laoreet, <i>nunc eget laoreet sagittis, quam ligula</i></strong> sodales orci, congue imperdiet eros tortor ac lectus. Duis eget nisl orci. Aliquam mattis purus non mauris blandit id luctus felis convallis. Integer varius egestas vestibulum. Nullam a dolor arcu, ac tempor elit. Donec.
-</div>
-<div class="comment">
-Duis nisl nibh, egestas at fermentum at, viverra et purus. Maecenas lobortis odio id sapien facilisis elementum. Curabitur et magna justo, et gravida augue. Sed tristique pellentesque arcu quis tempor.
-</div>
-<div class="comment">
-consectetur adipiscing elit. Proin blandit nunc sed sem dictum id feugiat quam blandit. Donec nec sem sed arcu interdum commodo ac ac diam. Donec consequat semper rutrum. Vestibulum et mauris elit. Vestibulum mauris lacus, ultricies.
-</div>
+        <title>Dynamically shortened Text with Show More link using jQuery</title>
+        <style>
+            body {
+                font-family: Calibri;
+            }
+            .comment,
+            .comment-small,
+            .comment-html {
+                width: 400px;
+                margin: 20px;
+                padding: 10px;
+            }
+            .ellip {
+                position: relative;
+                margin: 0 10px 0 0;
+            }
+            .ellip::before {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                left: -37px;
+                width: 37px;
+                height: 20px;
+                background: rgba(255, 255, 255, 0);
+                background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.66) 66%, rgba(255, 255, 255, 1) 100%);
+                background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.66) 66%, rgba(255, 255, 255, 1) 100%);
+                background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.66) 66%, rgba(255, 255, 255, 1) 100%);
+                background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.66) 66%, rgba(255, 255, 255, 1) 100%);
+                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.66) 66%, rgba(255, 255, 255, 1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  '#ffffff', endColorstr='#ffffff', GradientType=1)))
+            }
+        </style>
+    </head>
+    <body>
 
+        <br/>
+        <div class="comment">
+            Lorem ipsum dolor sit amet,
+            <strong>consectetur adipiscing elit. Vestibulum laoreet,
+                <i>nunc eget laoreet sagittis, quam ligula</i>
+            </strong>
+            sodales orci, congue imperdiet eros tortor ac lectus. Duis eget nisl orci.
+            Aliquam mattis purus non mauris blandit id luctus felis convallis. Integer
+            varius egestas vestibulum. Nullam a dolor arcu, ac tempor elit. Donec.
+        </div>
 
-<div class="comment"><br>Duisds nisl nibh, egestas at fermentum at, viverra et purus. Maecenas lobortis odio id sapien facilisis elementum.  <img alt="chicken" src="http://img.smileys.nl/466/chicken.gif">Curabitur et magna justo, et gravida augue. Sed tristique pellentesque arcu quis tempor.
-</div>
+        <div class="comment">
+            Duis nisl nibh, egestas at fermentum at, viverra et purus. Maecenas lobortis
+            odio id sapien facilisis elementum. Curabitur et magna justo,
+            <br/>et gravida augue. Sed tristique pellentesque arcu quis tempor.
+        </div>
 
+        <div class="comment">
+            consectetur adipiscing elit. Proin blandit nunc sed sem dictum id feugiat quam
+            blandit. Donec nec sem sed arcu interdum commodo ac ac diam. Donec consequat
+            semper rutrum. Vestibulum et mauris elit. Vestibulum mauris lacus, ultricies.
+            consectetur adipiscing elit. Proin blandit nunc sed sem dictum id feugiat quam
+            blandit. Donec nec sem sed arcu interdum commodo ac ac diam. Donec consequat
+            semper rutrum. Vestibulum et mauris elit. Vestibulum mauris lacus, ultricies.
+            consectetur adipiscing elit. Proin blandit nunc sed sem dictum id feugiat quam
+            blandit. Donec nec sem sed arcu interdum commodo ac ac diam. Donec consequat
+            semper rutrum. Vestibulum et mauris elit. Vestibulum mauris lacus, ultricies.
+            consectetur adipiscing elit. Proin blandit nunc sed sem dictum id feugiat quam
+            blandit. Donec nec sem sed arcu interdum commodo ac ac diam. Donec consequat
+            semper rutrum. Vestibulum et mauris elit. Vestibulum mauris lacus, ultricies.
+        </div>
 
-<div class="comment-small">
-A quick brown fox jumps over a lazy dog
-</div>
+        <div class="comment-html"><br>Duisds nisl nibh, egestas at fermentum at, viverra
+            et purus. Maecenas lobortis odio id sapien facilisis elementum.
+            <img alt="chicken" src="http://img.smileys.nl/466/chicken.gif">Curabitur et magna justo, et gravida augue. Sed tristique pellentesque arcu
+            <strong>quis tempor</strong>. Lorem ipsum dolor sit amet,
+            <li>consectetur adipiscing elit. Vestibulum laoreet,
+                <i>nunc eget laoreet sagittis, quam ligula</i>
+            </li>
+            sodales
+            <li>orci,</li>
+            <li>congue</li>
+            imperdiet eros tortor ac lectus.
+        </div>
 
+        <div class="comment-small">A quick brown fox jumps over a lazy dog</div>
 
-<div class="comment-small">
-<a href="http://foo/bar/someverylongtextwithfoofoofoofoo">foo</a> bar
-</div>
+        <div class="comment-small"><a href="http://foo/bar/someverylongtextwithfoofoofoofoo">foo</a> bars</div>
 
-<script language="javascript">
-$(document).ready(function() {
-	
-	$(".comment").shorten();
-	
-	$(".comment-small").shorten({showChars: 10});
+        <script language="javascript">
+            $(document).ready(function () {
+                $(".comment").shorten();
 
- });
-</script>
-</BODY>
-</HTML>
+                $(".comment-html").shorten({showChars: 230});
+
+                $(".comment-small").shorten({showChars: 10, minHideChars: 10});
+            });
+        </script>
+    </body>
+</html>
